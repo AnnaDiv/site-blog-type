@@ -1,6 +1,6 @@
 Hello this is my personal project.
 I have been developing for some time now.
-The PHP and half of CSS is mine, but the JS was written with the help of AI since im not familiar with it.
+All the PHP and more than half of HTML is mine, but the CSS and JS was mostly written with the help of AI since im not familiar with it.
 Im trying to learn and grow, any guidance will be appreciated.
 
 This is a pinterest-type site that has these functions so far:
