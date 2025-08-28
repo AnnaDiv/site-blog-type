@@ -1,5 +1,7 @@
 Hello this is my personal project.
 I have been developing for some time now.
+The PHP and half of CSS is mine, but the JS was written with the help of AI since im not familiar with it.
+Im trying to learn and grow, any guidance will be appreciated.
 
 This is a pinterest-type site that has these functions so far:
 
@@ -18,3 +20,7 @@ As of 28th of August the site includes:
 11) A page where all the people you follow are shown
 12) Inbox to recieve notifications when someone comments or likes
 one of your posts or follows your account
+
+I have removed any Authentication modules from my files specifically 
+src/Admin/Controller/LoginController.php and src/Admin/Support/AuthService.php
+for security reasons. 
