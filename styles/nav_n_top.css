@@ -154,12 +154,6 @@ background-color: #69c0ff;
     font-weight: 500;
 }
 
-@media (max-width: 600px) {
-    .user-status {
-        display: none;
-    }
-}
-
 /* Profile image style */
 .profile-pic img {
     width: 40px;

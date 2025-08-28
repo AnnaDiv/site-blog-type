@@ -84,11 +84,27 @@
     position: relative;
 }
 
+@media (max-width: 600px) {
+    .content-layout-art {
+        padding-right: 0rem;
+        padding: 1rem;
+    }
+}
+
+
 .masonry-container-art {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 2 columns */
   gap: 1.5rem;
   padding: 2rem;
+}
+
+@media (max-width: 600px) {
+    .masonry-container-art {
+        grid-template-columns: repeat(1, 1fr);
+        padding-right: 0rem;
+        padding: 1rem;
+    }
 }
 
 .masonry-item-art {
