@@ -1,0 +1,6 @@
+[submodule "php-jwt"]
+	path = php-jwt
+	url = https://github.com/firebase/php-jwt.git
+[submodule "PHPMailer"]
+	path = PHPMailer
+	url = https://github.com/PHPMailer/PHPMailer.git

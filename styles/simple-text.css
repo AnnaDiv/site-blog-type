@@ -1,0 +1,21 @@
+.simple-text {
+    margin: 4rem 4rem;
+    padding: 3rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+.simple-text > h1 {
+    text-align: center;
+    padding-bottom: 2rem;
+    text-shadow:
+        0 0 15px rgba(255, 222, 195, 0.075),
+        0 0 18px rgba(255, 243, 230, 0.459),
+        0 0 28px rgba(255, 253, 251, 0.89); 
+}
+
+.contact-email{
+
+}

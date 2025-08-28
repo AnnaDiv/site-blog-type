@@ -1,0 +1,341 @@
+/*search bar */
+.top-bar {
+    padding: 1rem 5%;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.search-bar {
+    flex: 1; /* Take up remaining space */
+    margin-right: 1rem;
+}
+
+.user-search-btn {
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    margin-right: 0.2rem;
+}
+
+.user-search-btn:hover {
+    background-color: #08367a;
+}
+
+.search-bar form {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background-color: transparent;
+}
+
+.search-bar input[type="submit"] {
+    border: none;
+    background-color: #0d47a1;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    margin-right: 3rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input[type="submit"]:hover {
+    background-color: #08367a;
+}
+
+@media (max-width: 600px) {
+    .search-bar form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar input[type="submit"] {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .user-search-btn{
+        margin-top: 0.5rem;
+    }
+}
+
+/*masonry layout */
+.content-layout {
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: 5px auto;
+    padding-right: 5rem;
+    gap: 2rem;
+    position: relative;
+}
+
+.masonry-wrapper {
+    flex: 1;
+    padding-right: 19%; /* Leave space for the fixed banner */
+    padding-left: 5%;
+}
+
+.banner {
+    position: fixed;
+    top: 24%;
+    right: 1%;
+    width: 18%;
+    height: 500px; /* or any value that fits your design, like 400px */
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+    overflow: hidden;
+}
+
+.banner-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.art_image {
+  position: absolute;
+  top: 3rem;         /* below the title */
+  left: 0;
+  width: 100%;
+  height: 65%;         /* adjust as needed */
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 8px;
+}
+
+.art_image.active {
+  opacity: 1;
+  z-index: 2;
+}
+.banner-desc {
+  position: absolute;      /* Make top/bottom values work */
+  bottom: 3rem;            /* Push it near the bottom of the banner */
+  width: 100%;             /* Ensure it spans the banner's width */
+  text-align: center;      /* Center the text horizontally */
+  font-size: 1.4rem;
+  color: #333;
+  right: 0.35rem;
+}
+
+.banner:hover > .banner-desc {
+  font-size: 1.6rem;
+  text-shadow:
+    0 0 10px rgba(255, 222, 195, 0.075),
+    0 0 12px rgba(255, 243, 230, 0.459),
+    0 0 25px rgba(255, 253, 251, 0.89); 
+}
+
+@media (max-width: 992px) {
+    .banner {
+        position: absolute;
+        top: 3px;
+        left: 3%;
+        height: auto;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 0;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .masonry-wrapper {
+        padding-right: 0;
+    }
+
+    .content-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+.masonry-container {
+    column-count: 4;
+    column-gap: 1em;
+    width: 100%;
+    padding: 1em;
+}
+
+.masonry-item {
+    background: #fff;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6%;
+    overflow: visible;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    break-inside: avoid;
+    position: relative;
+}
+
+.masonry-item:hover {
+  transform: scale(1.02);
+}
+
+.item_image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-title {
+    font-size: 1rem;
+    margin: 0.5em 0.2rem 0.2em;
+    padding: 0 0.8em;
+    color: #0d47a1;
+    font-weight: bold;
+    text-align: left;
+    transition: color 0.3s ease;
+    word-wrap: break-word;        /* legacy, but still good */
+    overflow-wrap: break-word;    /* modern standard */
+    overflow: hidden;
+    text-overflow: ellipsis; /* optional: if you want ... instead */
+}
+
+.post-title:hover {
+    color: #08367a;
+}
+
+.post-description {
+    font-size: 0.85rem;
+    color: #444;
+    padding: 0 0.8em 0.8em;
+    line-height: 1.5;
+    word-wrap: break-word;        /* legacy, but still good */
+    overflow-wrap: break-word;    /* modern standard */
+    overflow: hidden;
+    text-overflow: ellipsis; /* optional: if you want ... instead */
+}
+.post-categories {
+    padding: 0 0.8em 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.post-categories2 {
+    padding: 0 0.8em 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: space-between;
+}
+
+.post-owner {
+    font-size: 0.85rem;
+    word-wrap: break-word;        /* legacy, but still good */
+    overflow-wrap: break-word;    /* modern standard */
+    overflow: hidden;
+    text-overflow: ellipsis; /* optional: if you want ... instead */
+}
+
+.category-badge {
+    display: inline-block;
+    background-color: #e0ecff;
+    color: #0d47a1;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.category-badge:hover {
+    background-color: #c0dafc;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+    border-top-left-radius: 6%;
+    border-top-right-radius: 6%;
+}
+
+
+.hover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-info {
+  display: none;
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.hover-wrapper:hover .hover-info {
+  display: block;
+}
+
+.dots {
+  height: 1.7rem !important;
+  width: 0.5rem !important;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .content-layout {
+        flex-direction: column;
+    }
+
+    .banner {
+        position: relative;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .masonry-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-container {
+        column-count: 1;
+    }
+}
+@media (max-width: 768px) {
+    .masonry-container {
+        column-count: 2;
+    }
+}
+@media (max-width: 480px) {
+    .masonry-container {
+        column-count: 1;
+    }
+}

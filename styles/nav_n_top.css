@@ -1,0 +1,318 @@
+/* site title */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* helps spacing */
+    padding: 0.6rem;
+    min-height: 50px;
+    background-color: rgb(255, 136, 38);
+    position: relative;
+}
+
+body {
+    background-color: #ffeada;
+}
+
+main {
+    width: 100%;
+}
+/* Centered site title */
+.site-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ff0000, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    animation: floatTitle 3s ease-in-out infinite alternate;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .site-title {
+        font-size: 1rem;
+        max-width: 30%;
+        height: auto;
+    }
+}
+
+/*notification dropdown menu */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+#dropdownToggle {
+  padding: 0.3rem 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#dropdownToggle:hover {
+  background-color: #0d47a1;
+  
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  margin: 8px 0 0;
+  list-style: none;
+  z-index: 1000;
+}
+
+.notification {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+background-color: #69c0ff;
+}
+
+.notification-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px; /* smaller size */
+  cursor: pointer;
+  padding: 6px 10px;
+  position: relative;
+  color: #444;
+  transition: color 0.3s;
+}
+
+.notification-button.has-unread {
+    background-color: #ff4d4d !important;
+    border: 2px solid #000000 !important;  /* Ensure border is defined */
+    color: white;
+    border-radius: 50%;
+    padding: 6px;                /* Ensure there's room for border */
+    transition: background 0.3s ease, border 0.3s ease;
+    box-sizing: border-box;     /* Includes border in size */
+}
+
+.notification-button:hover {
+  color: #0077cc;
+}
+
+.notification:last-child {
+  border-bottom: none;
+}
+
+.notification a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-size: 14px;
+}
+
+.notification:hover {
+  background-color: #e0f2ff;
+}
+
+.notification-unread {
+  background-color: #69c0ff; /* Light gray for unread */
+  font-weight: bold;
+}
+
+.notification-read {
+  background-color: #c2e5ff; /* White for read */
+  font-weight: normal;
+}
+
+/* Right-side user container */
+.user {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Style the links */
+.user-status a,
+.profile-pic a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .user-status {
+        display: none;
+    }
+}
+
+/* Profile image style */
+.profile-pic img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+/*nav layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    position: fixed;
+    top: 0.4rem;
+    left: 0.5rem;
+    z-index: 1001;
+    background-color: transparent; /* no background */
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50%;
+    color: #000000;
+    text-shadow:
+        0 0 5px rgba(255, 210, 168, 0.952),
+        0 0 10px rgba(231, 196, 167, 0.9),
+        0 0 15px rgb(252, 224, 197);
+    
+    transition: text-shadow 0.3s ease;
+}
+
+.hamburger:hover {
+    font-size: 2rem;
+    text-shadow:
+        0 0 10px rgb(255, 222, 195),
+        0 0 12px rgb(255, 243, 230),
+        0 0 25px rgb(255, 253, 251);
+}
+
+
+
+/* Sidebar Nav */
+#side-nav {
+    position: fixed;
+    /*top: 0; */
+    left: -260px;
+    width: 220px;
+    height: 100%;
+    background-color: #ffb67a;
+    color: white;
+    padding: 2rem 1rem;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+#side-nav a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+#side-nav a:hover {
+    font-size: 1.2rem;
+    text-shadow:
+        0 0 10px rgba(255, 222, 195, 0.075),
+        0 0 12px rgba(255, 243, 230, 0.459),
+        0 0 25px rgba(255, 253, 251, 0.89); 
+}
+
+#side-nav.open {
+    left: 0;
+}
+
+#side-nav-profile {
+    position: absolute;
+    top: 100%; /* Appears directly below profile image */
+    right: 0;
+    width: 220px;
+    background-color: #ffb67a;
+    color: white;
+    padding: 0 1rem; /* Padding will animate in */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+
+    /* Hide by default */
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    overflow: hidden;
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+#side-nav-profile a {
+    display: block;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+#side-nav-profile a:hover{
+    font-size: 1.2rem;
+    text-shadow:
+        0 0 10px rgba(255, 222, 195, 0.075),
+        0 0 12px rgba(255, 243, 230, 0.459),
+        0 0 25px rgba(255, 253, 251, 0.89); 
+}
+
+#side-nav-profile2:hover{
+    font-size: 1.2rem;
+    text-shadow:
+        0 0 10px rgba(255, 222, 195, 0.075),
+        0 0 12px rgba(255, 243, 230, 0.459),
+        0 0 25px rgba(255, 253, 251, 0.89); 
+}
+
+#side-nav-profile.open {
+    max-height: 300px; /* Large enough to reveal all links */
+    opacity: 1;
+    transform: scaleY(1);
+    padding: 2rem 1rem;
+}
+
+#profile-toggle:hover {
+    box-shadow:
+        0 0 10px rgba(255, 222, 195, 0.075),
+        0 0 12px rgba(255, 243, 230, 0.459),
+        0 0 25px rgba(255, 253, 251, 0.89); 
+}
+
+#user-status:hover {
+    font-size: 1.1rem;
+    text-shadow:
+        0 0 10px rgba(255, 222, 195, 0.075),
+        0 0 12px rgba(255, 243, 230, 0.459),
+        0 0 25px rgba(255, 253, 251, 0.89); 
+}
