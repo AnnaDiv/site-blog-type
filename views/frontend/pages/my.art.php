@@ -74,25 +74,25 @@
 <?php $page = (int) $_GET['page'] ?? 1; ?>
 <ul class="pagination floating-pagination">
 <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => 1]); ?>">&laquo;&laquo;</a>
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => 1]); ?>">&laquo;&laquo;</a>
     </li>
     <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page === 1) : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => ($page-1)]); endif; ?>">&laquo;
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page === 1) : echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => ($page-1)]); endif; ?>">&laquo;
         </a>
     </li>
     <?php $page_shown = show_pages($num_pages, $page); ?>
     <?php foreach($page_shown AS $pag) : ?>
     <li class="pagination__li">
         <a class="pagination__link<?php if ($page === $pag) echo ' pagination__link--active'; ?>"
-            href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $pag]); ?>">
+            href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => $pag]); ?>">
             <?php echo e($pag); ?>
         </a>
     </li>
     <?php endforeach; ?>
     <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page == $num_pages) : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => ($page+1)]); endif; ?>">&raquo;</a>
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page == $num_pages) : echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => ($page+1)]); endif; ?>">&raquo;</a>
     </li>
     <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $num_pages]); ?>">&raquo;&raquo;</a>
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'myart', 'page' => $num_pages]); ?>">&raquo;&raquo;</a>
     </li>
 </ul>
