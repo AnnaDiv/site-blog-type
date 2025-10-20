@@ -10,7 +10,6 @@ class CategoriesRepository {
     public function __construct(private PDO $pdo){}
 
     public function catNumber(){
-
         $stmtCount = $this->pdo->prepare('SELECT COUNT(*) AS `count` FROM `categories`');
         $stmtCount->execute();
         $count = $stmtCount->fetch(PDO::FETCH_ASSOC)['count'];
@@ -18,7 +17,6 @@ class CategoriesRepository {
     }
 
     public function catPages(int $perPage) : int {
-
         $count = $this->catNumber();
         $num_pages = ceil($count / $perPage);
         return $num_pages;
@@ -56,7 +54,6 @@ class CategoriesRepository {
     }
 
     public function allCategories(){
-
         $stmt = $this->pdo->prepare('SELECT `title` FROM `categories`');
         $stmt->execute();
         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -64,7 +61,6 @@ class CategoriesRepository {
     }
 
     public function create(string $title, string $description){
-
         $stmt = $this->pdo->prepare('INSERT INTO `categories` ( `title`, `description`) 
                                     VALUES ( :title, :description )');
         $stmt->bindValue(':title', $title);                          
@@ -73,7 +69,6 @@ class CategoriesRepository {
     }
 
     public function deleteCategory(string $title){
-        
         $stmt = $this->pdo->prepare('DELETE FROM categories WHERE `title`=:title');
         $stmt->bindValue(':title', $title);
         return $stmt->execute();

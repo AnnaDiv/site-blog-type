@@ -15,6 +15,7 @@ class UsersRepository {
         $stmt = $this->pdo->prepare('SELECT `users_id`, `nickname` FROM `users`');
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //$users = $stmt->FetchAll(PDO::FETCH_CLASS, UserModel::class);
         return $users;
     }
 
@@ -84,10 +85,11 @@ class UsersRepository {
         if(is_array($res)){
 
             $image_uploaded = imagejpeg($res['new_image'], $res['destination']);
-
+            //cleanup
             imagedestroy($res['old_image']);
             imagedestroy($res['new_image']);
 
+            //update both image and fields
             if ($image_uploaded === true) {
                 $this->updateUserFields($users_id, $nickname, $email, $motto, $password);
                 $this->updateUserImage($res['image_folder'], $users_id);
@@ -98,7 +100,7 @@ class UsersRepository {
             }
         }
         else {
-            
+            //update only fields since there is no image
             $this->updateUserFields($users_id, $nickname, $email, $motto, $password);
             return true;
         }

@@ -29,7 +29,7 @@ class ClientController {
 
     public function showProfile($entries, $user, $isadmin, $isProfileOwner, $status, $page_num, $post_status){
         
-        $page = (int)($_GET['page'] ?? 1);
+        $page = test_input((int)($_GET['page'] ?? 1));
 
         $this->render('profile', [
             'entries' => $entries,

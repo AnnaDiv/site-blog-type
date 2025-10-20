@@ -151,6 +151,7 @@ class EntriesRepository {
         $stmt->bindValue(':status', $status);
         $stmt->bindValue(':type', 'post');
 
+        // Bind excluded users dynamically
         foreach ($excludedUsers as $index => $username) {
             $stmt->bindValue(":excluded{$index}", $username, PDO::PARAM_STR);
         }
@@ -265,9 +266,11 @@ class EntriesRepository {
 
 
     public function finalizing_posting(array $res, int $user_id, string $nickname, string $title, string $description, array $categories, string $post_status, string $type){
-
+        //after post has been made
+        //placing image into our final destination for it in our server storage
         $image_uploaded = imagejpeg($res['new_image'], $res['destination']);
 
+        //cleanup
         imagedestroy($res['old_image']);
         imagedestroy($res['new_image']);
 
@@ -284,10 +287,11 @@ class EntriesRepository {
         if(is_array($res)){
 
             $image_uploaded = imagejpeg($res['new_image'], $res['destination']);
-
+            //cleanup
             imagedestroy($res['old_image']);
             imagedestroy($res['new_image']);
 
+            //update both image and fields
             if ($image_uploaded === true) {
                 $this->updatePostFields($post_id, $title, $description, $final_categories, $post_status);
                 $this->updatePostImage($res['image_folder'], $post_id);
@@ -298,6 +302,7 @@ class EntriesRepository {
         }
         else {
 
+            //update only fields since there is no image
             $this->updatePostFields($post_id, $title, $description, $final_categories, $post_status);
         }
     }
@@ -327,7 +332,6 @@ class EntriesRepository {
     }
 
     public function deleted_status(int $posts_id) : bool {
-
         $stmt = $this->pdo->prepare('SELECT `deleted` FROM `posts` WHERE `posts_id` = :posts_id');
         $stmt->bindValue(':posts_id', $posts_id, PDO::PARAM_INT);
         $stmt->execute();
@@ -758,7 +762,6 @@ class EntriesRepository {
         
         $count = $stmt->fetchColumn();
         $num_pages = ceil($count / $perPage);
-        
         return $num_pages;
     }
 }

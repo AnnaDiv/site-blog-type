@@ -1,4 +1,8 @@
 <?php
+/*error_reporting(E_ALL);
+ini_set('display_errors', 1); // Show errors in browser
+ini_set('log_errors', 1);     // Log errors to file
+ini_set('error_log', __DIR__ . '/error.log'); // Write to a specific file */
 header('Content-Type: application/json');
 session_start();
 
@@ -14,6 +18,7 @@ if ($_GET['action'] === 'list') {
         echo json_encode($notifications);
     } 
     catch (Exception $e) {
+        error_log('API Error: ' . $e->getMessage()); // Write to error log
         echo json_encode(['error' => $e->getMessage()]);
     }
     exit;

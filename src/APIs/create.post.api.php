@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: application/json');
 
-require_once __DIR__ . '/../../inc/autoload.inc.php';
+require_once __DIR__ . '../../../inc/autoload.inc.php';
 require_once __DIR__ . '/../Support/TokenService.php';
-require_once __DIR__ . '/../../inc/db-connect.inc.php';
+require_once __DIR__ . '../../../inc/db-connect.inc.php';
 
 use App\Repository\EntriesRepository;
 use App\Repository\CategoriesRepository;

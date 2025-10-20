@@ -9,6 +9,17 @@ class EntriesController extends ClientController {
 
     public function __construct(protected EntriesRepository $entriesRepository){}
 
+    public function mainPage(bool $status, bool $isadmin) {
+
+        $art_images = $this->entriesRepository->artBanner();
+
+        $this->render('main.page', [
+            'isadmin' => $isadmin,
+            'status' => $status,
+            'art_images' => $art_images
+        ]);
+    }
+
     public function browse(int $perPage, bool $status, bool $isadmin, string|bool $nickname) {
         
         $excludedUsers = $this->entriesRepository->excludedUsers($nickname);

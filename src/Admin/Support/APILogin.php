@@ -24,7 +24,7 @@ if ($auth->handleLogin($email, $password)) {
     $user_id = $_SESSION['usersID'];
     $nickname = $_SESSION['nickname'];
 
-    $token = $tokenService->generate($user_id, $nickname);
+    $token = $tokenService->generateToken($user_id, $nickname);
 
     session_destroy(); // remove session-based tracking
 

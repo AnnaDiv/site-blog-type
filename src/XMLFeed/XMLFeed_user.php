@@ -58,7 +58,7 @@ function escapeXml($string) {
     return htmlspecialchars($string, ENT_XML1, 'UTF-8');
 }
 
-$baseUrl = "http://localhost/your_folder/src/XMLFeed/XMLFeed_user.php";
+$baseUrl = "http://localhost/blog-type-site/src/XMLFeed/XMLFeed_user.php";
 $paginationLinks = [
     'first' => $baseUrl . "?nickname=" . urlencode($user_nickname) . "&page=1",
     'prev' => $baseUrl . "?nickname=" . urlencode($user_nickname) . "&page=" . ($page === 1 || $page < 1 ? 1 : $page - 1),
@@ -83,8 +83,8 @@ echo '<?xml-stylesheet type="text/xsl" href="feed-style-user.xsl"?>';
 ?>
 <pins xmlns:media="http://search.yahoo.com/mrss/">
     <metadata>
-        <site>your_folder</site>
-        <url>https://localhost/your_folder/index.php?route=client&amp;pages=browse</url>
+        <site>Site</site>
+        <url>https://localhost/blog-type-site/index.php?route=client&amp;pages=browse</url>
         <description>Latest pins from <?php echo escapeXml($user_nickname); ?></description>
         <generated><?php echo date('c'); ?></generated>
         <count><?php echo count($posts); ?></count>
@@ -95,12 +95,12 @@ echo '<?xml-stylesheet type="text/xsl" href="feed-style-user.xsl"?>';
     <user_profile>
         <name><?php echo escapeXml($user['nickname'] ?? $user_nickname); ?></name>
         <?php if (isset($user['image_folder'])): ?>
-        <avatar>https://localhost/your_folder/<?php echo escapeXml($user['image_folder']); ?></avatar>
+        <avatar>https://localhost/blog-type-site/<?php echo escapeXml($user['image_folder']); ?></avatar>
         <?php endif; ?>
         <?php if (isset($user['motto'])): ?>
         <bio><![CDATA[<?php echo $user['motto']; ?>]]></bio>
         <?php endif; ?>
-        <profile_url>https://localhost/your_folder/index.php?route=client&amp;pages=profile&amp;nickname=<?php echo escapeXml($user_nickname); ?></profile_url>
+        <profile_url>https://localhost/blog-type-site/index.php?route=client&amp;pages=profile&amp;nickname=<?php echo escapeXml($user_nickname); ?></profile_url>
         <stats>
             <posts_count><?php echo $postsCount; ?></posts_count>
             <?php if (isset($likesCount)): ?>
@@ -118,16 +118,16 @@ echo '<?xml-stylesheet type="text/xsl" href="feed-style-user.xsl"?>';
         <id><?php echo $post['posts_id']; ?></id>
         <title><?php echo escapeXml($post['title']); ?></title>
         <description><![CDATA[<?php echo $post['content']; ?>]]></description>
-        <url>https://localhost/your_folder/index.php?route=client&amp;pages=post&amp;post=<?php echo $post['posts_id']; ?></url>
+        <url>https://localhost/blog-type-site/index.php?route=client&amp;pages=post&amp;post=<?php echo $post['posts_id']; ?></url>
         <created><?php echo escapeXml($post['time']); ?></created>
         
         <image>
-            <url>https://localhost/your_folder/<?php echo escapeXml($post['image_folder']); ?></url>
+            <url>https://localhost/blog-type-site/<?php echo escapeXml($post['image_folder']); ?></url>
         </image>
         
         <author>
             <name><?php echo escapeXml($post['user_nickname']); ?></name>
-            <profile>https://localhost/your_folder/index.php?route=client&amp;pages=profile&amp;nickname=<?php echo escapeXml($post['user_nickname']); ?></profile>
+            <profile>https://localhost/blog-type-site/index.php?route=client&amp;pages=profile&amp;nickname=<?php echo escapeXml($post['user_nickname']); ?></profile>
         </author>
         
         <stats>

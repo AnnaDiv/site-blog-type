@@ -6,3 +6,5 @@ content/user/*
 !content/user/alt/**
 php-jwt/
 PHPMailer/
+src/Admin/Controller/LoginController.php
+src/Admin/Support/AuthService.php
