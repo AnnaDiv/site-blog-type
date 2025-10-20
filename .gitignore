@@ -1,0 +1,8 @@
+filedump/
+password_helper.php
+content/post/random/
+content/user/*
+!content/user/alt/
+!content/user/alt/**
+php-jwt/
+PHPMailer/

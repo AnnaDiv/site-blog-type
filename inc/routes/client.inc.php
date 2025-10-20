@@ -1,5 +1,9 @@
 <?php 
-if ($pages == 'browse' || $pages == 'main') {
+    if ($pages == 'main') {
+        $entriesController = $container->get('entriesConrtoller');
+        $entriesController->mainPage($status, $isadmin);
+    }
+    elseif ($pages == 'browse'){
         $perPage = 10;
         $entriesController = $container->get('entriesController');
         if ($status === true){

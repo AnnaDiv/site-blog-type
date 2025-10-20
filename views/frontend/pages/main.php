@@ -12,6 +12,21 @@
     </div>
 </div>
 
+<?php /*
+<div class="top-bar">
+    <div class="search-bar">
+        <form method="GET" action="index.php">
+            <input type="hidden" name="route" value="client">
+            <input type="hidden" name="pages" value="search">
+            <input type="text" pattern=".{3,}" name="search_q" id="search_q"
+                   value="<?php if (!empty($_GET['search_q'])) echo e($_GET['search_q']); ?>"
+                   required title="3 characters minimum" placeholder="Search..." />
+            <input type="submit" name="submit" value="Search"/>
+        </form>
+    </div>
+</div>
+*/ ?>
+
 <div class="content-layout">
     <?php $image_location = include __DIR__ . '/../../../src/Variables/image_location.php'; ?>
 
@@ -72,26 +87,26 @@
 <?php $page = (int) $_GET['page'] ?? 1; ?>
 <ul class="pagination floating-pagination">
 <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => 1]); ?>">&laquo;&laquo;</a>
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => 1]); ?>">&laquo;&laquo;</a>
     </li>
     <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page === 1) : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => ($page-1)]); endif; ?>">&laquo;
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page === 1) : echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => ($page-1)]); endif; ?>">&laquo;
         </a>
     </li>
     <?php $page_shown = show_pages($num_pages, $page); ?>
     <?php foreach($page_shown AS $pag) : ?>
     <li class="pagination__li">
         <a class="pagination__link<?php if ($page === $pag) echo ' pagination__link--active'; ?>"
-            href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $pag]); ?>">
+            href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => $pag]); ?>">
             <?php echo e($pag); ?>
         </a>
     </li>
     <?php endforeach; ?>
     <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page == $num_pages) : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => ($page+1)]); endif; ?>">&raquo;</a>
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php if ($page == $num_pages) : echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => $page]); else : echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => ($page+1)]); endif; ?>">&raquo;</a>
     </li>
     <li class="pagination__li">
-        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'main', 'page' => $num_pages]); ?>">&raquo;&raquo;</a>
+        <a class="pagination__link pagination_link_ends" href="index.php?<?php echo http_build_query(['route' => 'client' , 'pages' => 'browse', 'page' => $num_pages]); ?>">&raquo;&raquo;</a>
     </li>
 </ul>
 <script>
@@ -104,7 +119,7 @@
     images[current].classList.add('active');
   }
 
-  setInterval(showNextImage, 3000); // rotate banner every 3 seconds
+  setInterval(showNextImage, 3000); // Change every 3 seconds
 </script>
 <script> 
    const form = document.getElementById('searchForm');

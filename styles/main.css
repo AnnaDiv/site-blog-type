@@ -338,3 +338,96 @@
         column-count: 1;
     }
 }
+
+#intro{
+    padding-right: 15%;
+    padding-left: 22%;
+}
+
+#social-info{
+    position: fixed;
+    top: 24%;
+    left: 2.5%;
+    margin-bottom: 5%;
+    width: 20%;
+    height: 450px; /* or any value that fits your design, like 400px */
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+    overflow: hidden; 
+}
+
+.simple-text-banner {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform .2s ease;
+}
+
+.simple-text-banner:hover {
+    transform: translateY(-2px);
+}
+
+.simple-text-banner h2, .simple-text-intro h2 {
+    margin: 0 0 .5rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.simple-text-banner p, .simple-text-intro p {
+    margin: 0;
+    color: #444;
+    font-size: .95rem;
+}
+
+.simple-text-banner a, .simple-text-intro a {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .75rem;
+    padding: .45rem .9rem;
+    background: #08367a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: .9rem;
+    transition: background .2s ease;
+}
+
+.simple-text-banner a:hover, .simple-text-intro a:hover {
+    background: #08367a;
+}
+
+/* little GitHub icon (unicode) */
+.simple-text-banner a::before {
+    font-size: 1.1em;
+}
+
+.gh-stats {
+    display: block;
+    margin-top: .5rem;
+    font-size: .8rem;
+    color: #666;
+}
+
+.content-layout-home {
+    max-width: 100%;
+    margin: 5px auto;
+    position: relative;
+}
+
+.simple-text-intro {
+    margin-top: 0.5rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}

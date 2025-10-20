@@ -50,8 +50,8 @@ if ($pages === 'login'){
             elseif ($pages === 'xmlfeed/browse'){
                 header('Content-Type: text/html; charset=utf-8');
 
-                $xmlFile = 'http://localhost/your_folder/src/XMLFeed/XMLFeed_browse.php';
-                $xslFile = 'http://localhost/your_folder/src/XMLFeed/feed-style-browse.xsl';
+                $xmlFile = 'http://localhost/blog-type-site/src/XMLFeed/XMLFeed_browse.php';
+                $xslFile = 'http://localhost/blog-type-site/src/XMLFeed/feed-style-browse.xsl';
 
                 echo $res = load_xml($xmlFile, $xslFile);
             }
@@ -59,8 +59,8 @@ if ($pages === 'login'){
                 header('Content-Type: text/html; charset=utf-8');
 
                 $nickname = ($_GET['nickname'] ?? 'Anna');
-                $xmlFile = 'http://localhost/your_folder/src/XMLFeed/XMLFeed_user.php?nickname='. $nickname;
-                $xslFile = 'http://localhost/your_folder/src/XMLFeed/feed-style-user.xsl';
+                $xmlFile = 'http://localhost/blog-type-site/src/XMLFeed/XMLFeed_user.php?nickname='. $nickname;
+                $xslFile = 'http://localhost/blog-type-site/src/XMLFeed/feed-style-user.xsl';
 
                 echo $res = load_xml($xmlFile, $xslFile);
             }
